@@ -119,8 +119,9 @@ def start_local_server():
     else:
         args = {}
 
+    import sys
     share_data.local_server_process = subprocess.Popen(
-        [bpy.app.binary_path_python, "-m", "mixer.broadcaster.apps.server", "--port", str(get_mixer_prefs().port)],
+        [sys.executable, "-m", "mixer.broadcaster.apps.server", "--port", str(get_mixer_prefs().port)],
         cwd=dir_path,
         shell=False,
         **args,
